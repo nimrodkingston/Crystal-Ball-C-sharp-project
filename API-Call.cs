@@ -4,7 +4,7 @@ async Task<String> GetResponse(String prompt ,HttpClient client)
 {
     using (var request = new HttpRequestMessage(new HttpMethod("POST"), "https://api.openai.com/v1/completions"))
     {
-        request.Headers.TryAddWithoutValidation("Authorization", "Bearer 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");
+        request.Headers.TryAddWithoutValidation("Authorization", "Bearer INSERT-API-KEY-HERE");
         request.Content = new StringContent("{\"model\": \"text-davinci-003\",\"prompt\":" + prompt + ",\"temperature\":0,\"max_tokens\":1000}");
         request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
