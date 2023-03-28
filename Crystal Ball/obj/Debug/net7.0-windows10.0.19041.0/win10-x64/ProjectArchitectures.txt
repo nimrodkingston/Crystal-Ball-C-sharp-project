@@ -1,0 +1,1 @@
+C:\Users\nimro\source\repos\Crystal Ball\Crystal Ball\Crystal Ball.csproj;x64

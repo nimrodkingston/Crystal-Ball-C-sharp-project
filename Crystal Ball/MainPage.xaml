@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="Black"
+             x:Class="Crystal_Ball.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            x:Name="Layout"
+            Spacing="30"
+            Padding="50,0"
+            VerticalOptions="Center">
+
+            <Image
+                Source="crystal_ball.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="250"
+                HorizontalOptions="Center" />
+
+            <Entry
+                x:Name="TextInput"
+                Completed="onTextCompleted" 
+                TextColor="white"
+                FontSize="18" />
+            
+            <Button
+                x:Name="OutputTypeButton"
+                Text="Request a vision from the crystal ball"
+                BackgroundColor="#6F42C1"
+                TextColor="White"
+                Clicked="changeOutput"/>
+
+            <Label
+                x:Name="OutputLabel"
+                Text="Tell me what you desire to know"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="The output label which prints the result of API calls"
+                FontSize="18"
+                TextColor="white"
+                HorizontalOptions="Center" />
+            
+        </VerticalStackLayout>
+        
+    </ScrollView>
+
+</ContentPage>
