@@ -13,9 +13,8 @@
 
             <Image
                 Source="crystal_ball.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="250"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"/>
 
             <Entry
                 x:Name="TextInput"
@@ -30,15 +29,23 @@
                 TextColor="White"
                 Clicked="changeOutput"/>
 
+            <Label 
+                x:Name="ProgressLabel"
+                Text="Tell me what your soul desires"
+                FontSize="18"
+                TextColor="White"
+                HorizontalOptions="Center"/>
+
             <Label
                 x:Name="OutputLabel"
-                Text="Tell me what you desire to know"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="The output label which prints the result of API calls"
+                Text=""
                 FontSize="18"
                 TextColor="white"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"/>
             
+            <Image
+                x:Name="OutputImage"
+                Source="place_holder.png"/>
         </VerticalStackLayout>
         
     </ScrollView>
