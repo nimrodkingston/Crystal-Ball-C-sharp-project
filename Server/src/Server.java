@@ -35,7 +35,6 @@ public class Server {
                     byte[] data = response.getBytes();
                     OutputStream socketOutput = clientConnection.getOutputStream();
                     socketOutput.write(data);
-                    System.out.println(response);
                 }
 
                 catch(Exception e){
