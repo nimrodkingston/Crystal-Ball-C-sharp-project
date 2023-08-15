@@ -1,7 +1,5 @@
 ﻿namespace Crystal_Ball;
 using System.Text;
-using System.Net.Http.Headers;
-using Newtonsoft.Json.Linq;
 using System.Net;
 using System.Net.Sockets;
 
@@ -10,7 +8,7 @@ public partial class MainPage : ContentPage
     //FEATURE NOTE (1): I should add a system to tell if the user asks a question or asks for an image and I can use an analysis of the inputted text via API calls to do this, meaning that the output type can be entirely worked out within the get response method
     //FEATURE NOTE(2): I can also make it so that the image is savable to the device if the user chooses. To do this I will have to look into memory streams and change the API response to b64, meaning a few other things will have to change too 
     //FEATURE(2) ADDITIONAL: This change can potentially make displaying images faster as they do not have to be downloaded to be displayed by the image object. Will have to compare URL download speed vs b64 decryption speed
-    IPEndPoint destination = new(IPAddress.Parse("ENTER SERVER IP HERE"), 70);
+    IPEndPoint destination = new(IPAddress.Parse("ENTER SERVER IP ADDRESS HERE"), 70);
     Boolean outputType = true;
     public MainPage()
     {
@@ -22,6 +20,7 @@ public partial class MainPage : ContentPage
         using (Socket clientSocket = new(destination.AddressFamily, SocketType.Stream, ProtocolType.Tcp))
         {
             await clientSocket.ConnectAsync(destination);
+            Console.WriteLine("We got to here with no problems");
             byte[] data = Encoding.ASCII.GetBytes(prompt);
             clientSocket.Send(data);
             byte[] buffer = new byte[1024];
