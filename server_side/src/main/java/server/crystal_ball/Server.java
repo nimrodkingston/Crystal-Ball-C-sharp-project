@@ -6,15 +6,16 @@ import org.json.JSONObject;
 
 public class Server {
     public static void main(String[] args){
+
+        ServerConnection server = new ServerConnection();
+
         try{
             String recievedMessage = "";
             String responseBehaviour = "Respond to the following prompt dramatically as if you are a mysterious fortune teller infront of a crystal ball.If the word you is used the prompt is referring to the fortune teller.If the prompt asks you for a joke act as if your time is being wasted and be snarky. Keep the response under 20 words:";
-            ServerSocket serverConnection = new ServerSocket(70);
-                System.out.println("Server socket established sucessfully");
 
             while (recievedMessage != "exit"){
                 
-                Socket clientConnection = serverConnection.accept();
+                Socket clientConnection = server.serverConnection.accept();
                 System.out.println("Client side connection succesful");
 
                 InputStream inputStream = clientConnection.getInputStream();
@@ -40,16 +41,22 @@ public class Server {
                     System.out.println(e);
                 }
 
-                clientConnection.close();
-                System.out.println("Client connection closed");
+                finally{
+                    clientConnection.close();
+                    System.out.println("Client connection closed");
+                }
             }
-
-            System.out.println("Server connection has been closed");
             
         }
+
         catch (Exception e){
-            System.out.println("There was an error establishing an active socket");
+            System.out.println("An error has occured during connections");
             System.out.println(e);
+        }
+
+        finally{
+            server.closeConnection();
+            System.out.println("Server connection has been closed");
         }
     }
 }
